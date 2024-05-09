@@ -1,17 +1,24 @@
 import axios from "axios";
 import React, { useState } from "react";
+import FlightData from "./components/FlightData";
 
 export default function App() {
   const [type, setType] = useState("oneWay");
-  const [fetchData, setFetchData] = useState({});
+  const [fetchData, setFetchData] = useState(null);
+  const [fetchMessage, setFetchMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.get("../data/LHR_CDG_ADT1_TYPE_1.txt");
-    const data = res.data;
-    setFetchData(data);
+    try {
+      const res = await axios.get("../data/LHR_CDG_ADT1_TYPE_1.txt");
+      if (res.status === 200) {
+        setFetchData(res.data.flightOffer);
+        setFetchMessage(res.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
-  console.log(fetchData);
   return (
     <div>
       <div className="border border-b-1 shadow-sm">
@@ -95,9 +102,9 @@ export default function App() {
               <input type="checkbox" /> Extra Options
             </div>
             <div className="flex gap-2 font-semibold items-center">
-              <input type="radio" name="" value="Environment" /> Environment
-              <input type="radio" name="" value="Dummy" /> Dummy
-              <input type="radio" name="" value="PDT" /> PDT
+              <input type="radio" name="radio" value="Environment" /> Environment
+              <input type="radio" name="radio" value="Dummy" /> Dummy
+              <input type="radio" name="radio" value="PDT" /> PDT
             </div>
             <div>
               <input
@@ -109,8 +116,11 @@ export default function App() {
             </div>
           </div>
         </form>
-        {Object.keys(fetchData).length > 0 && <p>Data Parsed Successfully</p>}
       </div>
+      {fetchData && <p>{fetchMessage}</p>}
+      <br />
+      {fetchData &&
+        fetchData.map((data, index) => <FlightData key={index} data={data} />)}
     </div>
   );
 }
