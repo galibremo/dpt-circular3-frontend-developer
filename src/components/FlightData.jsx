@@ -29,26 +29,26 @@ export default function FlightData({ fetchData }) {
               <td className="px-0 pb-1 whitespace-nowrap border-r-0">
                 <p>
                   {data?.itineraries?.[0].segments?.[0]?.marketingCarrier}
-                  {data?.itineraries?.[0].segments?.[0]?.flightNumber}
+                  {data?.itineraries?.[0].segments?.[0]?.aircraft}
                 </p>
                 <p>
                   {data?.itineraries?.[0].segments?.[1]?.marketingCarrier}
-                  {data?.itineraries?.[0].segments?.[1]?.flightNumber}
+                  {data?.itineraries?.[0].segments?.[1]?.aircraft}
                 </p>
                 {data.itineraries[0].segments[2] ? (
                   <p>
                     {data?.itineraries?.[0].segments?.[2]?.marketingCarrier}
-                    {data?.itineraries?.[0].segments?.[2]?.flightNumber}
+                    {data?.itineraries?.[0].segments?.[2]?.aircraft}
                   </p>
                 ) : (
                   <div className=" bg-orange-400 bg-opacity-40 h-[1px] w-full"></div>
                 )}
               </td>
               <td className="px-0 pb-1 whitespace-nowrap border-r-0">
-                <p>{data?.itineraries?.[0].segments?.[0]?.aircraft}</p>
-                <p>{data?.itineraries?.[0].segments?.[1]?.aircraft}</p>
+                <p>{data?.itineraries?.[0].segments?.[0]?.flightNumber}</p>
+                <p>{data?.itineraries?.[0].segments?.[1]?.flightNumber}</p>
                 {data.itineraries[0].segments[2] ? (
-                  <p>{data?.itineraries?.[0].segments?.[2]?.aircraft}</p>
+                  <p>{data?.itineraries?.[0].segments?.[2]?.flightNumber}</p>
                 ) : (
                   <div className=" bg-orange-400 bg-opacity-40 h-[1px] w-full"></div>
                 )}
@@ -126,7 +126,7 @@ export default function FlightData({ fetchData }) {
                   <div className=" bg-orange-400 bg-opacity-40 h-[1px] w-full"></div>
                 )}
               </td>
-              <td className="px-0 pb-0 whitespace-nowrap ">
+              <td className="px-0 pb-0 whitespace-nowrap">
                 <p>{data.price}</p>
                 <button className="text-center px-7 py-2 bg-[#2E3791] text-white rounded-[3px] uppercase">
                   select
