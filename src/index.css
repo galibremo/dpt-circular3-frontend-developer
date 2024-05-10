@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.odd-row {
+  background-color: #e5e7eb; /* Light gray background for odd rows */
+}
+.even-row {
+  background-color: #f3f4f6; /* Light gray background for odd rows */
+}

@@ -28,7 +28,7 @@ export default function App() {
         <form onSubmit={handleSubmit}>
           <div className="flex items-center justify-center py-5">
             <input
-              className={`px-2 border border-r-0 border-[#2E3791] font-semibold cursor-pointer w-[110px] ${
+              className={`px-2 border border-r-0 border-[#2E3791] font-semibold cursor-pointer w-[120px] ${
                 type === "roundTrip" ? "bg-[#2E3791] text-white" : " bg-white"
               }`}
               type="button"
@@ -37,7 +37,7 @@ export default function App() {
               onClick={() => setType("roundTrip")}
             />
             <input
-              className={`px-2 border border-[#2E3791] font-semibold cursor-pointer w-[110px] ${
+              className={`px-2 border border-[#2E3791] font-semibold cursor-pointer w-[120px] ${
                 type === "oneWay" ? "bg-[#2E3791] text-white" : " bg-white"
               }`}
               type="button"
@@ -46,7 +46,7 @@ export default function App() {
               onClick={() => setType("oneWay")}
             />
             <input
-              className={`px-2 border border-l-0 border-[#2E3791] font-semibold cursor-pointer w-[110px] ${
+              className={`px-2 border border-l-0 border-[#2E3791] font-semibold cursor-pointer w-[120px] ${
                 type === "multiCity" ? "bg-[#2E3791] text-white" : " bg-white"
               }`}
               type="button"
@@ -55,54 +55,55 @@ export default function App() {
               onClick={() => setType("multiCity")}
             />
           </div>
-          <div className="w-full border border-x-0 py-3 border-[#2563EB] flex items-center justify-between">
-            <div className="flex gap-5">
+          <div className="border border-x-0 py-3 border-[#2563EB] grid grid-cols-1 lg:flex gap-5">
+            <div className="flex gap-2 ">
               <input
-                className="p-1 border shadow-sm w-[150px]"
+                className="p-1 border shadow-sm w-[120px]"
                 type="text"
                 id=""
                 placeholder="LHR"
               />
               <input
-                className="p-1 border shadow-sm w-[150px]"
+                className="p-1 border shadow-sm w-[120px]"
                 type="text"
                 id=""
                 placeholder="CDG"
               />
               <input
-                className="p-1 border shadow-sm w-[150px]"
+                className="p-1 border shadow-sm w-[120px]"
                 type="date"
                 id=""
               />
             </div>
-            <div className="flex gap-5">
-              <select className="p-1 border shadow-sm w-[100px]">
+            <div className="flex gap-2">
+              <select className="p-1 border shadow-sm w-[120px]">
                 <option>Day - </option>
               </select>
-              <select className="p-1 border shadow-sm w-[100px]">
+              <select className="p-1 border shadow-sm w-[120px]">
                 <option>Day + </option>
               </select>
-              <select className="p-1 border shadow-sm w-[180px]">
+              <select className="p-1 border shadow-sm w-[120px]">
                 <option>Any time</option>
               </select>
             </div>
-            <span>+</span>
-            <div className="flex gap-5">
-              <select className="p-1 border shadow-sm w-[100px]">
+            <span className="block">+</span>
+            <div className="flex gap-2">
+              <select className="p-1 border shadow-sm w-[120px]">
                 <option>ADT </option>
               </select>
-              <select className="p-1 border shadow-sm w-[100px]">
+              <select className="p-1 border shadow-sm w-[120px]">
                 <option>1</option>
               </select>
             </div>
-            <span>+</span>
+            <span className="block">+</span>
           </div>
-          <div className="w-full border border-b border-x-0 border-t-0 border-[#2563EB] py-4 flex items-center justify-between">
+          <div className="w-full border border-b border-x-0 border-t-0 border-[#2563EB] py-4 flex flex-col gap-3 lg:flex-row justify-between">
             <div className="font-semibold flex items-center gap-2">
               <input type="checkbox" /> Extra Options
             </div>
             <div className="flex gap-2 font-semibold items-center">
-              <input type="radio" name="radio" value="Environment" /> Environment
+              <input type="radio" name="radio" value="Environment" />
+              Environment
               <input type="radio" name="radio" value="Dummy" /> Dummy
               <input type="radio" name="radio" value="PDT" /> PDT
             </div>
@@ -119,8 +120,7 @@ export default function App() {
       </div>
       {fetchData && <p>{fetchMessage}</p>}
       <br />
-      {fetchData &&
-        fetchData.map((data, index) => <FlightData key={index} data={data} />)}
+      <FlightData fetchData={fetchData} />
     </div>
   );
 }
