@@ -20,8 +20,8 @@ These are my best two projects:
 
 https://github.com/galibremo/dua-app
 This is a front-end project technology that is used in this project is next js, tailwind CSS, javascript
-live link:
+live link - https://drive.google.com/file/d/1qHHlvDXrORTkOUiwszUHjy2cbQ3kx5Ra/view?usp=sharing
 
 https://github.com/galibremo/E-shop-MERN-Stack
 This is a full-stack project technology that is used in this project is react JS, tailwind CSS, javascript, express, mongoose, redux
-live link:
+live link - https://drive.google.com/file/d/1zy7qCzaZLb-SvqDBOJdqbwvdHhERDK1L/view?usp=sharing
